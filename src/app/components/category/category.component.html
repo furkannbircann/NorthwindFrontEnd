@@ -1,7 +1,8 @@
 <div class="list-group">
-  <a (click)="setCurrentCategory(category)" [routerLink]="['/products/category/{{category.categoryID}}']"
-    routerLinkActive="router-link-active" *ngFor="let category of categories" href="#"
-    [class]="getCurrentCategoryClass(category)">
+  <a routerLink="/products" [class]="getAllCategoryClass()">Tüm Ürünler</a>
+  <a (click)="setCurrentCategory(category)" routerLink="/products/category/{{category.categoryID}}"
+    *ngFor="let category of categories" href="#" [class]="getCurrentCategoryClass(category)">
     {{category.categoryName}}
   </a>
 </div>
+<h5 *ngIf="currentCategory">{{currentCategory.categoryName}}</h5>
